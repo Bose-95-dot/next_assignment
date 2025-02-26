@@ -1,8 +1,8 @@
 export async function fetchProducts(page: number, pageSize: number) {
     try {
-        const skip = (page - 1) * pageSize;
-        const res = await fetch(`https://fakestoreapi.com/products?limit=${pageSize}&skip=${skip}`);
-        return await res.json();
+        const res = await fetch("https://fakestoreapi.com/products", { cache: "no-store" });
+        const products = await res.json();
+        return products.slice((page - 1) * pageSize, page * pageSize);
     } catch (error) {
         console.error("Error fetching products:", error);
         return [];

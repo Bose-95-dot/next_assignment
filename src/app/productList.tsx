@@ -8,7 +8,7 @@ type productType = {
     price: number,
     image: string
 }[]
-function ProductList({ products, page }: { products: productType, page: number }) {
+export default async function ProductList({ products, page }: { products: productType, page: number }) {
     console.log(products, "products")
     if (!Array.isArray(products) || products.length === 0) {
         return <div className="text-center p-4">No products available</div>;
@@ -46,4 +46,3 @@ function ProductList({ products, page }: { products: productType, page: number }
         </div>
     );
 }
-export default ProductList;
