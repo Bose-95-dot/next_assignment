@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fetchProductById } from "../../../app/lib/fetchProducts";
-export default async function ProductPage({ params }: { params: { id: string } }) {
+//@ts-ignore
+export default async function ProductPage({ params }) {
     const { id } = params;
     const product = await fetchProductById(id);
 
